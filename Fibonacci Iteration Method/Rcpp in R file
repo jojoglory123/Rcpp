@@ -2,11 +2,17 @@ library(Rcpp)
 library(inline)
 
 incltxt <- "
-int fib_Iter_Cpp(int x) {
-    if (x < 2)
-        return x;
-    else
-        return (fib_Iter_Cpp(x - 1) + fib_Iter_Cpp(x - 2));
+int fib_Iter_Cpp(int n) {
+  double first = 0;
+  double second = 1;
+  double third = 0;
+  
+  for (int i = 0; i < n; i++) {
+    third = first + second;
+    first = second;
+    second = third;
+  }
+  return first;
 }
 "
 
