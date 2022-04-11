@@ -6,5 +6,5 @@ int fib_Recur_Cpp(int x) {
   if (x < 2)
     return x;
   else
-    return (fib_Recur_Cpp(x - 1)) + fib_Recur_Cpp(x - 2);
+    return (fib_Recur_Cpp(x - 1) + fib_Recur_Cpp(x - 2));
 }
