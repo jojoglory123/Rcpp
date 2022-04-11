@@ -2,18 +2,18 @@ library(Rcpp)
 library(inline)
 
 incltxt <- "
-int fib_Iter_Cpp(int x) {
+int fib_Recur_Cpp(int x) {
   if (x < 2)
     return x;
   else
-    return (fib_Iter_Cpp(x - 1)) + fib_Iter_Cpp(x - 2);
+    return (fib_Recur_Cpp(x - 1)) + fib_Recur_Cpp(x - 2);
 }
 "
 
 
-fib_Iter_Rcpp <- cxxfunction(signature(xs="int"),
-                       plugin="Rcpp",
-                       incl=incltxt,
-                       body="int x = Rcpp::as<int>(xs); return Rcpp::wrap( fib_Iter_Cpp(x) );")
+fib_Recur_Rcpp <- cxxfunction(signature(xs="int"),
+                             plugin="Rcpp",
+                             incl=incltxt,
+                             body="int x = Rcpp::as<int>(xs); return Rcpp::wrap( fib_Recur_Cpp(x) );")
 
-fib_Iter_Rcpp(20)
+fib_Recur_Rcpp(20)
