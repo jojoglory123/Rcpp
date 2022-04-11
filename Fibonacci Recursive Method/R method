@@ -1,7 +1,7 @@
-fib_Iter_R <- function(n) {
+fib_Recur_R <- function(n) {
   if (n == 0) return(0)
   if (n == 1) return(1)
-  return (fib_Iter_R(n - 1) + fib_Iter_R(n - 2))
+  return (fib_Recur_R(n - 1) + fib_Recur_R(n - 2))
 }
 
-fib_Iter_R(20)
+fib_Recur_R(20)
