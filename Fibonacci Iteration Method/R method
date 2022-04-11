@@ -1,0 +1,13 @@
+fib_Iter_R <- function(n) {
+  first <- 0
+  second <- 1
+  third <- 0
+  for (i in seq_len(n)) {
+    third <- first + second
+    first <- second
+    second <- third
+  }
+  return(first)
+}
+
+fib_Iter_R(20)
